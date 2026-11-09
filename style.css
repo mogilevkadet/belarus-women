@@ -482,32 +482,31 @@ footer {
     margin-top: 40px;
 }
 
-/* =========================================
-   ОГОНЬ НА ВСЮ ШИРИНУ БАННЕРА
-   ========================================= */
+/* ===== GIF-ОГОНЬ НА ВЕСЬ БАННЕР ===== */
 .fire-wrapper {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 280px;
+    height: 100%;       /* растягиваем на всю высоту шапки */
     pointer-events: none;
-    z-index: 2;
+    z-index: 0;
     overflow: hidden;
 }
 
-.fire-wrapper.fire-fullwidth {
-    left: 0;
-    transform: none;
-    width: 100vw;
-    max-width: 100%;
-    filter: drop-shadow(0 0 40px rgba(255, 100, 0, 0.5));
-}
-
-#fireCanvas {
+.fire-gif {
+    display: block;
     width: 100%;
     height: 100%;
+    object-fit: cover;   /* заполняет всю область, обрезая лишнее */
+    opacity: 0.55;       /* делаем полупрозрачным, чтобы текст читался */
+    mix-blend-mode: screen; /* опционально: огонь будет «светиться» поверх фона */
+}
+
+.fire-fullwidth canvas {
     display: block;
+    width: 100%;
+    height: 100%;
 }
 
 /* =========================================
