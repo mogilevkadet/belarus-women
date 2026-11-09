@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Белорусская женщина — символ силы и вдохновения</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Оптимизация шрифтов: только нужные начертания, display=swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Предзагрузка критических изображений (если они выше первого экрана) -->
+    <link rel="preload" as="image" href="images/collage.jpg">
 </head>
 <body>
 
-    <!-- Шапка -->
     <header class="hero">
         <div class="hero-content">
             <h1>Белорусская женщина</h1>
@@ -18,13 +22,11 @@
             <a href="#heroes" class="btn">Узнать больше</a>
         </div>
         
-        <!-- Канвас для огня на всю ширину -->
         <div class="fire-wrapper fire-fullwidth">
             <canvas id="fireCanvas"></canvas>
         </div>
     </header>
 
-    <!-- Навигация -->
     <nav id="navbar">
         <ul>
             <li><a href="#about">О проекте</a></li>
@@ -33,135 +35,118 @@
             <li><a href="#pilots">Лётчицы</a></li>
             <li><a href="#underground">Подпольщицы</a></li>
             <li><a href="#famous">Выдающиеся женщины</a></li>
-            
         </ul>
     </nav>
 
-    <!-- Основной контент -->
     <main>
-        <!-- Блок О проекте -->
-                 <!-- Блок Современность -->
-          <section id="about" class="section">
-    <h2 class="section-title">Портрет современной белоруски</h2>    
-</section>
-<section id="modern" class="section-fullwidth">
-    <!-- Одна большая фотография с наложенным заголовком -->
-    <div class="fullwidth-photo">
-        <!-- Замените images/family-photo.jpg на путь к вашей фотографии -->
-        <img src="images/collage.jpg"" alt="Современная белорусская семья">
-        
+        <section id="about" class="section">
+            <h2 class="section-title">Портрет современной белоруски</h2>    
+        </section>
+
+        <section id="modern" class="section-fullwidth">
+            <div class="fullwidth-photo">
+                <img src="images/collage.jpg" alt="Современная белорусская семья" loading="lazy">
             </div>
-    
-  <!-- Баннер-слоган -->
-<div class="slogan-banner">
-    <h2>Женское лицо белорусского успеха</h2>
-</div>
-</section>
+            <div class="slogan-banner">
+                <h2>Женское лицо белорусского успеха</h2>
+            </div>
+        </section>
 
-
-        <!-- Блок Героини войны -->
         <section id="heroes" class="section bg-light">
             <h2 class="section-title">Подвиг в годы Великой Отечественной войны</h2>
             <div class="cards-container">
-    <!-- Карточка 1 -->
-    <div class="card" onclick="flipCard(this)">
-        <div class="card-inner">
-            <div class="card-front">
-                <img src="images/karpinskaya.jpg" alt="Таня Карпинская" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Таня+Карпинская'">
-                <h3>Таня Карпинская</h3>
-                <p class="role">Юная подпольщица (1923–1943)</p>
-                <p class="hint">Нажмите, чтобы узнать больше</p>
-            </div>
-            <div class="card-back">
-                <h3>Таня Карпинская</h3>
-                <p>Печатала листовки со сводками Совинформбюро. Вместе с матерью Ольгой Николаевной помогала подполью. Погибла, не выдав товарищей. Её имя носит пионерская дружина школы №1 г. Могилева и переулок в городе.</p>
-            </div>
-        </div>
-    </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/karpinskaya.jpg" alt="Таня Карпинская" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Таня+Карпинская'">
+                            <h3>Таня Карпинская</h3>
+                            <p class="role">Юная подпольщица (1923–1943)</p>
+                            <p class="hint">Нажмите, чтобы узнать больше</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Таня Карпинская</h3>
+                            <p>Печатала листовки со сводками Совинформбюро. Вместе с матерью Ольгой Николаевной помогала подполью. Погибла, не выдав товарищей. Её имя носит пионерская дружина школы №1 г. Могилева и переулок в городе.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Карточка 2 -->
-    <div class="card" onclick="flipCard(this)">
-        <div class="card-inner">
-            <div class="card-front">
-                <img src="images/kube.jpg" alt="Мазаник, Осипова, Троян" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Мазаник,+Осипова,+Троян'">
-                <h3>Елена Мазаник, Мария Осипова, Надежда Троян</h3>
-                <p class="role">Минские подпольщицы</p>
-                <p class="hint">Нажмите, чтобы узнать больше</p>
-            </div>
-            <div class="card-back">
-                <h3>Минские подпольщицы</h3>
-                <p>29 октября 1943 года удостоены звания Героя Советского Союза. Именно они спланировали и осуществили ликвидацию гауляйтера Вильгельма Кубе — палача белорусского народа.</p>
-            </div>
-        </div>
-    </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/kube.jpg" alt="Мазаник, Осипова, Троян" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Мазаник,+Осипова,+Троян'">
+                            <h3>Елена Мазаник, Мария Осипова, Надежда Троян</h3>
+                            <p class="role">Минские подпольщицы</p>
+                            <p class="hint">Нажмите, чтобы узнать больше</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Минские подпольщицы</h3>
+                            <p>29 октября 1943 года удостоены звания Героя Советского Союза. Именно они спланировали и осуществили ликвидацию гауляйтера Вильгельма Кубе — палача белорусского народа.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Карточка 3 -->
-    <div class="card" onclick="flipCard(this)">
-        <div class="card-inner">
-            <div class="card-front">
-                <img src="images/tusnolobova.jpg" alt="Зинаида Туснолобова-Марченко" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Зинаида+Туснолобова'">
-                <h3>Зинаида Туснолобова-Марченко</h3>
-                <p class="role">Медсестра, Герой СССР</p>
-                <p class="hint">Нажмите, чтобы узнать больше</p>
-            </div>
-            <div class="card-back">
-                <h3>Зинаида Туснолобова-Марченко</h3>
-                <p>Вынесла с поля боя 128 раненых. После тяжелейшего ранения лишилась рук и ног, но выжила. Её именем называли танки и самолеты. Награждена медалью Флоренс Найтингейл.</p>
-            </div>
-        </div>
-    </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/tusnolobova.jpg" alt="Зинаида Туснолобова-Марченко" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Зинаида+Туснолобова'">
+                            <h3>Зинаида Туснолобова-Марченко</h3>
+                            <p class="role">Медсестра, Герой СССР</p>
+                            <p class="hint">Нажмите, чтобы узнать больше</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Зинаида Туснолобова-Марченко</h3>
+                            <p>Вынесла с поля боя 128 раненых. После тяжелейшего ранения лишилась рук и ног, но выжила. Её именем называли танки и самолеты. Награждена медалью Флоренс Найтингейл.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Карточка 4 -->
-    <div class="card" onclick="flipCard(this)">
-        <div class="card-inner">
-            <div class="card-front">
-                <img src="images/portnova.jpg" alt="Зина Портнова" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Зина+Портнова'">
-                <h3>Зина Портнова</h3>
-                <p class="role">Юная разведчица</p>
-                <p class="hint">Нажмите, чтобы узнать больше</p>
-            </div>
-            <div class="card-back">
-                <h3>Зина Портнова</h3>
-                <p>Член подпольной организации «Юные мстители». Отравила суп в столовой немецких офицеров (погибло около 100 человек). На допросе застрелила следователя и двух гитлеровцев. Казнена в 1944 году.</p>
-            </div>
-        </div>
-    </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/portnova.jpg" alt="Зина Портнова" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Зина+Портнова'">
+                            <h3>Зина Портнова</h3>
+                            <p class="role">Юная разведчица</p>
+                            <p class="hint">Нажмите, чтобы узнать больше</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Зина Портнова</h3>
+                            <p>Член подпольной организации «Юные мстители». Отравила суп в столовой немецких офицеров (погибло около 100 человек). На допросе застрелила следователя и двух гитлеровцев. Казнена в 1944 году.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Карточка 5 -->
-    <div class="card" onclick="flipCard(this)">
-        <div class="card-inner">
-            <div class="card-front">
-                <img src="images/maslovskaya.jpg" alt="Анна Масловская" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Анна+Масловская'">
-                <h3>Анна Масловская</h3>
-                <p class="role">Разведчица, Герой СССР</p>
-                <p class="hint">Нажмите, чтобы узнать больше</p>
-            </div>
-            <div class="card-back">
-                <h3>Анна Масловская</h3>
-                <p>Подрывала эшелоны, взорвала 270 рельсов, вынесла 23 раненых. После войны стала приемной мамой для 15 сирот.</p>
-            </div>
-        </div>
-    </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/maslovskaya.jpg" alt="Анна Масловская" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Анна+Масловская'">
+                            <h3>Анна Масловская</h3>
+                            <p class="role">Разведчица, Герой СССР</p>
+                            <p class="hint">Нажмите, чтобы узнать больше</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Анна Масловская</h3>
+                            <p>Подрывала эшелоны, взорвала 270 рельсов, вынесла 23 раненых. После войны стала приемной мамой для 15 сирот.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Карточка 6 -->
-    <div class="card" onclick="flipCard(this)">
-        <div class="card-inner">
-            <div class="card-front">
-                <img src="images/oktyabrskaya.jpg" alt="Мария Октябрьская" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Мария+Октябрьская'">
-                <h3>Мария Октябрьская</h3>
-                <p class="role">Механик-водитель танка</p>
-                <p class="hint">Нажмите, чтобы узнать больше</p>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/oktyabrskaya.jpg" alt="Мария Октябрьская" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300/8e1b12/ffffff?text=Мария+Октябрьская'">
+                            <h3>Мария Октябрьская</h3>
+                            <p class="role">Механик-водитель танка</p>
+                            <p class="hint">Нажмите, чтобы узнать больше</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Мария Октябрьская</h3>
+                            <p>Продала ценные вещи, чтобы построить танк Т-34 «Боевая подруга» и отправиться на фронт. Герой Советского Союза (посмертно).</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-back">
-                <h3>Мария Октябрьская</h3>
-                <p>Продала ценные вещи, чтобы построить танк Т-34 «Боевая подруга» и отправиться на фронт. Герой Советского Союза (посмертно).</p>
-            </div>
-        </div>
-    </div>
-</div>
         </section>
 
-        <!-- РАЗДЕЛ: ЖЕНЩИНЫ-ЛЁТЧИЦЫ -->
         <section id="pilots" class="section">
             <h2 class="section-title">Женщины-лётчицы: «Ночные ведьмы»</h2>
             <p class="section-subtitle">
@@ -171,11 +156,10 @@
             </p>
 
             <div class="flip-cards-container">
-                <!-- Марина Раскова -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/raskova.jpg" alt="Марина Раскова" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Марина+Раскова'">
+                            <img src="images/raskova.jpg" alt="Марина Раскова" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Марина+Раскова'">
                             <h3>Марина Раскова</h3>
                             <p class="role">Создательница женских авиаполков</p>
                         </div>
@@ -186,11 +170,10 @@
                     </div>
                 </div>
 
-                <!-- Лидия Литвяк -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/litvyak.jpg" alt="Лидия Литвяк" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Лидия+Литвяк'">
+                            <img src="images/litvyak.jpg" alt="Лидия Литвяк" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Лидия+Литвяк'">
                             <h3>Лидия Литвяк</h3>
                             <p class="role">«Белая лилия Сталинграда»</p>
                         </div>
@@ -201,11 +184,10 @@
                     </div>
                 </div>
 
-                <!-- Екатерина Зеленко -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/zelenko.jpg" alt="Екатерина Зеленко" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Екатерина+Зеленко'">
+                            <img src="images/zelenko.jpg" alt="Екатерина Зеленко" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Екатерина+Зеленко'">
                             <h3>Екатерина Зеленко</h3>
                             <p class="role">Единственная женщина, совершившая таран</p>
                         </div>
@@ -216,11 +198,10 @@
                     </div>
                 </div>
 
-                <!-- Анна Дудина -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/dudina.jpg" alt="Анна Дудина" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Анна+Дудина'">
+                            <img src="images/dudina.jpg" alt="Анна Дудина" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Анна+Дудина'">
                             <h3>Анна Дудина</h3>
                             <p class="role">Лётчица, жившая в Могилёве</p>
                         </div>
@@ -230,58 +211,58 @@
                         </div>
                     </div>
                 </div>
-                <!--Евгения Руднева -->
+
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/rudneva.jpg" alt="Евгения Руднева " onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Евгения+Руднева '">
-                            <h3>Евгения Руднева </h3>
-                            <p class="role">Прошла путь от штурмана экипажа до штурмана всего полка</p>
+                            <img src="images/rudneva.jpg" alt="Евгения Руднева" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Евгения+Руднева'">
+                            <h3>Евгения Руднева</h3>
+                            <p class="role">Прошла путь от штурмана экипажа до штурмана полка</p>
                         </div>
                         <div class="flip-card-back">
-                            <h3>Евгения Руднева </h3>
-                            <p>Евгения Максимовна Руднева — советская лётчица, штурман знаменитого женского 46-го гвардейского ночного бомбардировочного авиаполка, Герой Советского Союза (посмертно). До войны она была студенткой МГУ, подающей надежды астрономом, но ушла на фронт добровольцем и погибла в 23 года, выполняя боевое задание.</p>
+                            <h3>Евгения Руднева</h3>
+                            <p>Евгения Максимовна Руднева — советская лётчица, штурман знаменитого женского 46-го гвардейского ночного бомбардировочного авиаполка, Герой Советского Союза (посмертно). До войны была студенткой МГУ, подающей надежды астрономом, но ушла на фронт добровольцем и погибла в 23 года, выполняя боевое задание.</p>
                         </div>
                     </div>
                 </div>
-                <!--Екатерина Буданова  -->
+
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/budaeva.jpg" alt="Екатерина Буданова " onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Евгения+Руднева '">
-                            <h3>Екатерина Буданова </h3>
+                            <img src="images/budaeva.jpg" alt="Екатерина Буданова" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Екатерина+Буданова'">
+                            <h3>Екатерина Буданова</h3>
                             <p class="role">Имеет почётный титул "воздушного аса"</p>
                         </div>
                         <div class="flip-card-back">
-                            <h3>Екатерина Буданова </h3>
+                            <h3>Екатерина Буданова</h3>
                             <p>Екатерина Васильевна Буданова (1916–1943) — легендарная советская лётчица-истребитель, одна из двух женщин в мире, завоевавших почётный титул «воздушного аса». За свою короткую, но яркую жизнь она прошла путь от простой деревенской девушки до грозы немецких пилотов, одержав 11 воздушных побед.</p>
                         </div>
                     </div>
                 </div>
-                 <!--Галина  Докутович   -->
+
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/dokutovich.jpg" alt="Галина  Докутович " onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text '">
-                            <h3>Галина  Докутович </h3>
+                            <img src="images/dokutovich.jpg" alt="Галина Докутович" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Галина+Докутович'">
+                            <h3>Галина Докутович</h3>
                             <p class="role">«Ночная ведьма» из Гомеля</p>
                         </div>
                         <div class="flip-card-back">
-                            <h3>Галина  Докутович </h3>
+                            <h3>Галина Докутович</h3>
                             <p>Докутович Галина Ивановна (1921, Гомель – 1943) – младший лейтенант, штурман самолета 46 гвардейского Таманского ночного лёгкобомбардировочного авиаполка. В 1941 г. добровольцем ушла на фронт. На её счету 136 боевых вылетов. Летом 1942 г. получила тяжёлое повреждение позвоночника, после лечения вернулась в полк. Погибла при выполнении боевого задания над станицей Крымская (ныне г. Крымск) Краснодарского края</p>
                         </div>
                     </div>
                 </div>
-                 <!--Лариса Розанова   -->
+
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/rozanova.jpg" alt="Лариса Розанова " onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text '">
-                            <h3>Лариса Розанова </h3>
-                            <p class="role">Прошла путь от рядового пилота до гвардии капитана, штурмана полка и командира звена</p>
+                            <img src="images/rozanova.jpg" alt="Лариса Розанова" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/8e1b12/ffffff?text=Лариса+Розанова'">
+                            <h3>Лариса Розанова</h3>
+                            <p class="role">Прошла путь от рядового пилота до гвардии капитана</p>
                         </div>
                         <div class="flip-card-back">
-                            <h3>Лариса Розанова </h3>
+                            <h3>Лариса Розанова</h3>
                             <p>Лариса Николаевна Розанова (в замужестве — Литвинова) — советская лётчица, участница Великой Отечественной войны, штурман и командир звена знаменитого 46-го гвардейского ночного бомбардировочного авиационного полка («Ночные ведьмы»). За образцовое выполнение боевых заданий и проявленные мужество и героизм ей было присвоено звание Героя Советского Союза.</p>
                         </div>
                     </div>
@@ -289,26 +270,25 @@
             </div>
         </section>
 
-        <!-- РАЗДЕЛ: ЖЕНЩИНЫ-ПОДПОЛЬЩИЦЫ -->
         <section id="underground" class="section bg-light">
             <h2 class="section-title">Женщины-подпольщицы</h2>
             <p class="section-subtitle">
                 На оккупированной территории БССР женщины составляли костяк подполья. Они собирали разведданные,
                 распространяли листовки, совершали диверсии и помогали партизанам.
             </p>
-<!-- Блок с цитатой справа -->
-        <section class="section quote-container">
-            <div class="quote-box">
-                <p>«Короткая, но яркая жизнь Тани Карпинской, все её силы "были отданы самому прекрасному в мире — борьбе за освобождение человечества"».</p>
-                <cite>— Из материалов пионерской дружины имени Татьяны Карпинской</cite>
-            </div>
-        </section>
+
+            <section class="section quote-container">
+                <div class="quote-box">
+                    <p>«Короткая, но яркая жизнь Тани Карпинской, все её силы "были отданы самому прекрасному в мире — борьбе за освобождение человечества"».</p>
+                    <cite>— Из материалов пионерской дружины имени Татьяны Карпинской</cite>
+                </div>
+            </section>
+
             <div class="flip-cards-container">
-                <!-- Мазаник, Осипова, Троян -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/kube.jpg" alt="Мазаник, Осипова, Троян" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Мазаник,+Осипова,+Троян'">
+                            <img src="images/kube.jpg" alt="Мазаник, Осипова, Троян" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Мазаник,+Осипова,+Троян'">
                             <h3>Елена Мазаник, Мария Осипова, Надежда Троян</h3>
                             <p class="role">Ликвидация гауляйтера Кубе</p>
                         </div>
@@ -319,11 +299,10 @@
                     </div>
                 </div>
 
-                <!-- Зина Портнова -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/portnova.jpg" alt="Зина Портнова" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Зина+Портнова'">
+                            <img src="images/portnova.jpg" alt="Зина Портнова" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Зина+Портнова'">
                             <h3>Зина Портнова</h3>
                             <p class="role">Юная героиня «Юных мстителей»</p>
                         </div>
@@ -334,11 +313,10 @@
                     </div>
                 </div>
 
-                <!-- Ефросинья Зенькова -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/zenkova.jpg" alt="Ефросинья Зенькова" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Ефросинья+Зенькова'">
+                            <img src="images/zenkova.jpg" alt="Ефросинья Зенькова" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Ефросинья+Зенькова'">
                             <h3>Ефросинья Зенькова</h3>
                             <p class="role">Руководитель «Юных мстителей»</p>
                         </div>
@@ -349,11 +327,10 @@
                     </div>
                 </div>
 
-                <!-- Таня Карпинская -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/karpinskaya.jpg" alt="Таня Карпинская" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Таня+Карпинская'">
+                            <img src="images/karpinskaya.jpg" alt="Таня Карпинская" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Таня+Карпинская'">
                             <h3>Таня Карпинская</h3>
                             <p class="role">Подпольщица из Могилёва</p>
                         </div>
@@ -364,11 +341,10 @@
                     </div>
                 </div>
 
-                <!-- Вера Хоружая -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/horuzhaya.jpg" alt="Вера Хоружая" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Вера+Хоружая'">
+                            <img src="images/horuzhaya.jpg" alt="Вера Хоружая" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Вера+Хоружая'">
                             <h3>Вера Хоружая</h3>
                             <p class="role">Легендарная подпольщица</p>
                         </div>
@@ -379,11 +355,10 @@
                     </div>
                 </div>
 
-                <!-- Анна Масловская -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="images/maslovskaya.jpg" alt="Анна Масловская" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Анна+Масловская'">
+                            <img src="images/maslovskaya.jpg" alt="Анна Масловская" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400/27ae60/ffffff?text=Анна+Масловская'">
                             <h3>Анна Масловская</h3>
                             <p class="role">Разведчица, Герой СССР</p>
                         </div>
@@ -393,133 +368,115 @@
                         </div>
                     </div>
                 </div>
-                        
             </div>
         </section>
 
-        <!-- РАЗДЕЛ: ЖЕНЩИНЫ, ПРОСЛАВИВШИЕ БЕЛАРУСЬ -->
         <section id="famous" class="section">
             <h2 class="section-title">Женщины, прославившие Беларусь</h2>
             <p class="section-subtitle">
                 От просветительницы XII века до космонавта XXI века — путь белорусской женщины сквозь столетия.
             </p>
 
-           <div class="history-timeline">
-    <!-- SVG-фон -->
-    <svg class="timeline-svg-bg" viewBox="0 0 100 1000" preserveAspectRatio="none">
-        <defs>
-            <linearGradient id="timelineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#c0392b"/>
-                <stop offset="20%" stop-color="#e67e22"/>
-                <stop offset="40%" stop-color="#f1c40f"/>
-                <stop offset="60%" stop-color="#27ae60"/>
-                <stop offset="80%" stop-color="#2980b9"/>
-                <stop offset="100%" stop-color="#8e44ad"/>
-            </linearGradient>
-        </defs>
-        <path d="M 50 0 C 50 100, 10 150, 10 250 C 10 350, 90 400, 90 500 C 90 600, 10 650, 10 750 C 10 850, 90 900, 90 1000" 
-              stroke="url(#timelineGradient)" stroke-width="8" fill="none" stroke-linecap="round"/>
-    </svg>
+            <div class="history-timeline">
+                <svg class="timeline-svg-bg" viewBox="0 0 100 1000" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="timelineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#c0392b"/>
+                            <stop offset="20%" stop-color="#e67e22"/>
+                            <stop offset="40%" stop-color="#f1c40f"/>
+                            <stop offset="60%" stop-color="#27ae60"/>
+                            <stop offset="80%" stop-color="#2980b9"/>
+                            <stop offset="100%" stop-color="#8e44ad"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M 50 0 C 50 100, 10 150, 10 250 C 10 350, 90 400, 90 500 C 90 600, 10 650, 10 750 C 10 850, 90 900, 90 1000" 
+                          stroke="url(#timelineGradient)" stroke-width="8" fill="none" stroke-linecap="round"/>
+                </svg>
 
-    <!-- 1. Евфросиния Полоцкая -->
-    <div class="history-item left">
-        <div class="history-content">
-            <img src="images/euphrosyne.jpg" class="history-photo" alt="Евфросиния Полоцкая" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=ЕП'">
-            <span class="history-date">XII век</span>
-            <h3>Евфросиния Полоцкая</h3>
-            <p class="role">Просветительница, святая</p>
-            <p>Отказалась от княжеского статуса ради служения. Основала монастыри, школы и библиотеки в Полоцке. Заказала создание уникального креста Лазаря Богши.</p>
-        </div>
-    </div>
+                <div class="history-item left">
+                    <div class="history-content">
+                        <img src="images/euphrosyne.jpg" class="history-photo" alt="Евфросиния Полоцкая" loading="lazy" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=ЕП'">
+                        <span class="history-date">XII век</span>
+                        <h3>Евфросиния Полоцкая</h3>
+                        <p class="role">Просветительница, святая</p>
+                        <p>Отказалась от княжеского статуса ради служения. Основала монастыри, школы и библиотеки в Полоцке. Заказала создание уникального креста Лазаря Богши.</p>
+                    </div>
+                </div>
 
-    <!-- 2. Анастасия Слуцкая -->
-    <div class="history-item right">
-        <div class="history-content">
-            <img src="images/slutskaya.jpg" class="history-photo" alt="Анастасия Слуцкая" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=АС'">
-            <span class="history-date">XV–XVI вв.</span>
-            <h3>Анастасия Слуцкая</h3>
-            <p class="role">Княгиня, защитница города</p>
-            <p>Возглавила войско против татар, облачившись в доспехи. При ней Слуцк ни разу не был захвачен врагами. Превратила город в неприступную крепость.</p>
-        </div>
-    </div>
+                <div class="history-item right">
+                    <div class="history-content">
+                        <img src="images/slutskaya.jpg" class="history-photo" alt="Анастасия Слуцкая" loading="lazy" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=АС'">
+                        <span class="history-date">XV–XVI вв.</span>
+                        <h3>Анастасия Слуцкая</h3>
+                        <p class="role">Княгиня, защитница города</p>
+                        <p>Возглавила войско против татар, облачившись в доспехи. При ней Слуцк ни разу не был захвачен врагами. Превратила город в неприступную крепость.</p>
+                    </div>
+                </div>
 
-    <!-- 3. Франциска Урсула Радзивилл -->
-    <div class="history-item left">
-        <div class="history-content">
-            <img src="images/radziwill.jpg" class="history-photo" alt="Франциска Урсула Радзивилл" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=ФР'">
-            <span class="history-date">XVIII век</span>
-            <h3>Франциска Урсула Радзивилл</h3>
-            <p class="role">Первая женщина-писательница Беларуси</p>
-            <p>Создала первый классический театр в Несвиже. Восстановила замок, пополнила библиотеку до 9000 томов. Превратила Несвиж в культурный центр Речи Посполитой.</p>
-        </div>
-    </div>
+                <div class="history-item left">
+                    <div class="history-content">
+                        <img src="images/radziwill.jpg" class="history-photo" alt="Франциска Урсула Радзивилл" loading="lazy" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=ФР'">
+                        <span class="history-date">XVIII век</span>
+                        <h3>Франциска Урсула Радзивилл</h3>
+                        <p class="role">Первая женщина-писательница Беларуси</p>
+                        <p>Создала первый классический театр в Несвиже. Восстановила замок, пополнила библиотеку до 9000 томов. Превратила Несвиж в культурный центр Речи Посполитой.</p>
+                    </div>
+                </div>
 
+                <div class="history-item right">
+                    <div class="history-content">
+                        <img src="images/pashkevich.jpg" class="history-photo" alt="Алоиза Пашкевич" loading="lazy" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=АП'">
+                        <span class="history-date">Начало XX века</span>
+                        <h3>Алоиза Пашкевич (Тётка)</h3>
+                        <p class="role">Поэтесса, общественная деятельница</p>
+                        <p>Защищала права крестьянок и работниц. Училась в двух университетах. Работала сестрой милосердия в Первую мировую войну.</p>
+                    </div>
+                </div>
 
-    <!-- 5. Алоиза Пашкевич (Тётка) -->
-    <div class="history-item right">
-        <div class="history-content">
-            <img src="images/pashkevich.jpg" class="history-photo" alt="Алоиза Пашкевич" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=АП'">
-            <span class="history-date">Начало XX века</span>
-            <h3>Алоиза Пашкевич (Тётка)</h3>
-            <p class="role">Поэтесса, общественная деятельница</p>
-            <p>Защищала права крестьянок и работниц. Училась в двух университетах. Работала сестрой милосердия в Первую мировую войну.</p>
-        </div>
-    </div>
+                <div class="history-item left">
+                    <div class="history-content">
+                        <img src="images/stanyuta.jpg" class="history-photo" alt="Стефания Станюта" loading="lazy" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=СС'">
+                        <span class="history-date">XX век</span>
+                        <h3>Стефания Станюта</h3>
+                        <p class="role">Легенда Купаловского театра</p>
+                        <p>Сыграла около 200 ролей. Работала на сцене до 95 лет. Широко известна по ролям бабушек в кино («Люди на болоте», «Прощание»).</p>
+                    </div>
+                </div>
 
-    <!-- 6. Стефания Станюта -->
-    <div class="history-item left">
-        <div class="history-content">
-            <img src="images/stanyuta.jpg" class="history-photo" alt="Стефания Станюта" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=СС'">
-            <span class="history-date">XX век</span>
-            <h3>Стефания Станюта</h3>
-            <p class="role">Легенда Купаловского театра</p>
-            <p>Сыграла около 200 ролей. Работала на сцене до 95 лет. Широко известна по ролям бабушек в кино («Люди на болоте», «Прощание»).</p>
-        </div>
-    </div>
+                <div class="history-item right">
+                    <div class="history-content">
+                        <img src="images/domracheva.jpg" class="history-photo" alt="Дарья Домрачева" loading="lazy" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=ДД'">
+                        <span class="history-date">2014–2018</span>
+                        <h3>Дарья Домрачева</h3>
+                        <p class="role">Четырёхкратная олимпийская чемпионка</p>
+                        <p>Первая в истории женщина, удостоенная звания «Герой Беларуси». Выиграла три золота на Олимпиаде в Сочи и ещё одно — в Пхенчхане.</p>
+                    </div>
+                </div>
 
-    <!-- 7. Дарья Домрачева -->
-    <div class="history-item right">
-        <div class="history-content">
-            <img src="images/domracheva.jpg" class="history-photo" alt="Дарья Домрачева" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=ДД'">
-            <span class="history-date">2014–2018</span>
-            <h3>Дарья Домрачева</h3>
-            <p class="role">Четырёхкратная олимпийская чемпионка</p>
-            <p>Первая в истории женщина, удостоенная звания «Герой Беларуси». Выиграла три золота на Олимпиаде в Сочи и ещё одно — в Пхенчхане.</p>
-        </div>
-    </div>
-
-    <!-- 8. Марина Василевская -->
-    <div class="history-item left">
-        <div class="history-content">
-            <img src="images/vasilevskaya.jpg" class="history-photo" alt="Марина Василевская" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=МВ'">
-            <span class="history-date">2024</span>
-            <h3>Марина Василевская</h3>
-            <p class="role">Первая белорусская женщина-космонавт</p>
-            <p>Совершила полёт на МКС в составе международного экипажа. Герой Беларуси. Её имя стало символом новых возможностей для белорусских женщин.</p>
-        </div>
-    </div>
-</div>
+                <div class="history-item left">
+                    <div class="history-content">
+                        <img src="images/vasilevskaya.jpg" class="history-photo" alt="Марина Василевская" loading="lazy" onerror="this.src='https://via.placeholder.com/150/c0392b/ffffff?text=МВ'">
+                        <span class="history-date">2024</span>
+                        <h3>Марина Василевская</h3>
+                        <p class="role">Первая белорусская женщина-космонавт</p>
+                        <p>Совершила полёт на МКС в составе международного экипажа. Герой Беларуси. Её имя стало символом новых возможностей для белорусских женщин.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Блок Современность -->
-<section id="modern" class="section bg-light">
-    
-    <!-- ДОБАВЛЕНА КАРТИНКА -->
-    <div class="modern-banner">
-        <img src="images/year-of-women.jpg" alt="2026 — Год белорусской женщины">
-    </div>
+        <section id="modern" class="section bg-light">
+            <div class="modern-banner">
+                <img src="images/year-of-women.jpg" alt="2026 — Год белорусской женщины" loading="lazy">
+            </div>
 
-    <h2 class="section-title">Год белорусской женщины</h2>
-    
-    <div class="modern-content">
-        <p>«Настало время отдать должное их особой роли в нашей жизни и объявить 2026 год Годом белорусской женщины».</p>
-        <p class="author">— Александр Лукашенко, Президент Республики Беларусь</p>
-        
-      
-    </div>
-</section>
+            <h2 class="section-title">Год белорусской женщины</h2>
+            
+            <div class="modern-content">
+                <p>«Настало время отдать должное их особой роли в нашей жизни и объявить 2026 год Годом белорусской женщины».</p>
+                <p class="author">— Александр Лукашенко, Президент Республики Беларусь</p>
+            </div>
+        </section>
     </main>
 
     <footer>
