@@ -236,6 +236,8 @@ nav ul li a:hover { color: var(--accent-color); }
 }
 
 .card-back, .flip-card-back {
+    background: linear-gradient(135deg, #1e5631 0%, #27ae60 100%); 
+    color: var(--white);
     transform: rotateY(180deg);
     justify-content: center;
     padding: 20px;
